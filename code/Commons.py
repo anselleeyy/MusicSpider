@@ -11,4 +11,4 @@ headers = {
     'Pragma': 'no-cache'
 }
 
-dir_root = 'C:/Users/Ansel/Desktop/MusicSpider/music'
+dir_root = 'C:/Users/Ansel/Desktop/MusicSpider/music/'
