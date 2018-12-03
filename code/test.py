@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-import WangYiYun
+import code.WangYiYun as WangYiYun
 
 headers = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0) Gecko/20100101 Firefox/57.0',

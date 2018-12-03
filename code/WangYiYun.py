@@ -20,11 +20,11 @@ class WangYiYun(object):
         """
         js中的a函数
         """
-        str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
         res = ''
         for x in range(16):
-            index = math.floor(random.random() * len(str))
-            res += str[index]
+            index = math.floor(random.random() * len(alpha))
+            res += alpha[index]
         return res
 
     @staticmethod
