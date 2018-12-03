@@ -2,13 +2,13 @@
 
 **网易云音乐接口的分析以及音乐获取（Music Spider to WangYiYun Music Based on Python）**
 
-<center>
+<p align="center">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="" />
     <img src="https://img.shields.io/badge/Author-AnselLee-orange.svg" alt="" style="padding-left: 5px" />
     <img src="https://img.shields.io/badge/version-1.0-brightgreen.svg" alt="" style="padding-left: 5px" />
     <img src="https://img.shields.io/github/stars/anselleeyy/MusicSpider.svg?style=social&label=Stars" alt="" style="padding-left: 5px" />
     <img src="https://img.shields.io/github/forks/anselleeyy/MusicSpider.svg?style=social&label=Fork" alt="" style="padding-left: 5px" />
-</center>
+</p>
 
 > 作者本科毕业设计项目（数据爬虫部分），欢迎各位 star 或者 fork  
 > 有任何问题可以提交 ISSUE 给我  
