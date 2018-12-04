@@ -5,7 +5,7 @@ import codecs
 import math
 
 
-class WangYiYun(object):
+class NetEase(object):
     def __init__(self, d):
         self.d = d
         self.e = '010001'
