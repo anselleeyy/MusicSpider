@@ -12,3 +12,7 @@ headers = {
 }
 
 dir_root = 'C:/Users/Ansel/Desktop/MusicSpider/music/'
+
+search_url = 'https://music.163.com/weapi/cloudsearch/get/web?csrf_token'
+
+album_url = 'http://music.163.com/api/album/'
