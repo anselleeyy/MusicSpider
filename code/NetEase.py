@@ -3,9 +3,13 @@ import base64
 import random
 import codecs
 import math
+import json
+import requests
+from code import Commons
+import os
 
 
-class NetEase(object):
+class Encrypt(object):
     def __init__(self, d):
         self.d = d
         self.e = '010001'
@@ -53,3 +57,47 @@ class NetEase(object):
             'params': str(params, encoding='utf-8'),
             'encSecKey': enc_sec_key
         }
+
+
+class Api:
+    @staticmethod
+    def get_artist_album_list(artist):
+        post_data = '{"total":"True","s":"%s","offset":"0","csrf_token":"nothing","limit":"30","type":"10"}' % artist
+        wyy = Encrypt(post_data)
+        data = wyy.get_data()
+        print('---------- init class NetEase ----------')
+        response = requests.post(url=Commons.search_url, data=data, headers=Commons.headers)
+        dir_path = Commons.dir_root + '{}'.format(artist)
+        # 文件夹不存在，则创建
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+        path = Commons.dir_root + '{}/{}.json'.format(artist, artist)
+        file = open(path, 'w', encoding='utf-8')
+        json.dump(response.json(), file, ensure_ascii=False)
+        print('---------- artist: %s info got succeed ----------' % artist)
+        file.close()
+        return
+
+    @staticmethod
+    def get_album_info(album_id):
+        url = Commons.album_url + str(album_id)
+        response = requests.get(url=url, headers=Commons.headers)
+        print(response.json())
+        return response
+
+    @staticmethod
+    def get_music_url(ids, br=128000):
+        text = {'ids': [ids], 'br': br, 'csrf_token': ''}
+        wyy = Encrypt(json.dumps(text))
+        data = wyy.get_data()
+        response = requests.post(url=Commons.song_url, data=data, headers=Commons.headers)
+        print(response.json())
+        # print(data)
+
+    @staticmethod
+    def get_song_lyric(ids):
+        text = {'id': ids, 'lv': -1, 'tv': -1, 'csrf_token': ''}
+        wyy = Encrypt(json.dumps(text))
+        data = wyy.get_data()
+        response = requests.post(url=Commons.lyric_url, data=data, headers=Commons.headers)
+        print(response.json())
