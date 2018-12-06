@@ -29,7 +29,7 @@
 
 ### 请作者喝杯咖啡
 
-<p aligin="center">
+<p align="center">
     <img src="./images/alipay.png" />
     <img src="./images/wechat.png" style="padding-left: 20px" />
 </p>
