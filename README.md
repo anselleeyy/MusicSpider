@@ -23,12 +23,13 @@
 ### 项目主要功能说明
 
 - [X] 基于 AES 和 RSA 加密参数并获取网易云音乐 Json 数据
+- [ ] 实现获取网易云歌手相关专辑信息、专辑内音乐信息、音乐的下载以及歌词的保存
 - [ ] Json 数据的持久化存储（MongoDB）
 - [ ] 音乐的下载与存储（不包括下架、付费等）
 
 ### 请作者喝杯咖啡
 
-<center>
+<p aligin="center">
     <img src="./images/alipay.png" />
     <img src="./images/wechat.png" style="padding-left: 20px" />
-</center>
+</p>
