@@ -15,7 +15,7 @@ dir_root = 'C:/Users/Ansel/Desktop/MusicSpider/music/'
 
 search_url = 'https://music.163.com/weapi/cloudsearch/get/web?csrf_token'
 
-album_url = 'http://music.163.com/api/album/'
+album_url = 'http://music.163.com/api/album/{}'
 
 song_url = 'http://music.163.com/weapi/song/enhance/player/url?csrf_token='
 
