@@ -60,30 +60,42 @@ class Encrypt(object):
 
 
 class Api:
+    # 获取歌手信息，返回 json 数据
+    @staticmethod
+    def get_artist_info(artist):
+        post_data = {
+            "total": "True",
+            "s": artist,
+            "offset": 0,
+            "csrf_token": "nothing",
+            "limit": 1,
+            "type": 100
+        }
+        encrypt_data = Encrypt(json.dumps(post_data)).get_data()
+        response = requests.post(url=Commons.search_url, data=encrypt_data, headers=Commons.headers)
+        return response.json()
+
+    # 获取歌手专辑列表（前30个），返回 json 数据
     @staticmethod
     def get_artist_album_list(artist):
-        post_data = '{"total":"True","s":"%s","offset":"0","csrf_token":"nothing","limit":"30","type":"10"}' % artist
-        wyy = Encrypt(post_data)
-        data = wyy.get_data()
-        print('---------- init class NetEase ----------')
-        response = requests.post(url=Commons.search_url, data=data, headers=Commons.headers)
-        dir_path = Commons.dir_root + '{}'.format(artist)
-        # 文件夹不存在，则创建
-        if not os.path.exists(dir_path):
-            os.mkdir(dir_path)
-        path = Commons.dir_root + '{}/{}.json'.format(artist, artist)
-        file = open(path, 'w', encoding='utf-8')
-        json.dump(response.json(), file, ensure_ascii=False)
-        print('---------- artist: %s info got succeed ----------' % artist)
-        file.close()
-        return
+        post_data = {
+            "total": "True",
+            "s": artist,
+            "offset": 0,
+            "csrf_token": "nothing",
+            "limit": 30,
+            "type": 10
+        }
+        encrypt_data = Encrypt(json.dumps(post_data)).get_data()
+        response = requests.post(url=Commons.search_url, data=encrypt_data, headers=Commons.headers)
+        return response.json()
 
+    # 获取专辑内音乐信息
     @staticmethod
     def get_album_info(album_id):
-        url = Commons.album_url + str(album_id)
+        url = Commons.album_url.format(album_id)
         response = requests.get(url=url, headers=Commons.headers)
-        print(response.json())
-        return response
+        return response.json()
 
     @staticmethod
     def get_music_url(ids, br=128000):
