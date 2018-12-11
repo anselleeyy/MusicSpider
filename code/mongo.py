@@ -18,7 +18,7 @@ class Mongo:
             "picUrl": artist_info['picUrl']
         }
         # 新增该歌手的信息
-        result_id = self.collections.insert({"artist": data})
+        result_id = self.collections.insert_one({"artist": data})
         return result_id
 
     # 保存单张专辑信息
