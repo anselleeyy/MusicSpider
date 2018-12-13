@@ -1,5 +1,4 @@
 import json
-import os
 from code.NetEase import Api
 from code import Commons
 from code.store import Store
