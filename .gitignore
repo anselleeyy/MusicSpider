@@ -105,9 +105,7 @@ venv.bak/
 
 # music
 /music/*
+/download/*
 
 # test file
 /code/test.py
-
-# mongo
-/code/MongoTest.py
