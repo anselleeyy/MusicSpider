@@ -71,7 +71,7 @@ class Api:
             "type": 100
         }
         encrypt_data = Encrypt(json.dumps(post_data)).get_data()
-        response = requests.post(url=Commons.SEARCH_URL, data=encrypt_data, headers=Commons.headers)
+        response = requests.post(url=Commons.NETEASE['SEARCH_URL'], data=encrypt_data, headers=Commons.headers)
         return response.json()
 
     # 获取歌手专辑列表（前30个），返回 json 数据
@@ -86,13 +86,13 @@ class Api:
             "type": 10
         }
         encrypt_data = Encrypt(json.dumps(post_data)).get_data()
-        response = requests.post(url=Commons.SEARCH_URL, data=encrypt_data, headers=Commons.headers)
+        response = requests.post(url=Commons.NETEASE['SEARCH_URL'], data=encrypt_data, headers=Commons.headers)
         return response.json()
 
     # 获取专辑内音乐信息
     @staticmethod
     def get_album_info(album_id):
-        url = Commons.ALBUM_URL.format(album_id)
+        url = Commons.NETEASE['ALBUM_URL'].format(album_id)
         response = requests.get(url=url, headers=Commons.headers)
         return response.json()
 
@@ -102,7 +102,7 @@ class Api:
         text = {'ids': [ids], 'br': br, 'csrf_token': ''}
         wyy = Encrypt(json.dumps(text))
         data = wyy.get_data()
-        response = requests.post(url=Commons.SONG_URL, data=data, headers=Commons.headers)
+        response = requests.post(url=Commons.NETEASE['SONG_URL'], data=data, headers=Commons.headers)
         return response.json()['data'][0]['url']
 
     # 获取音乐歌词信息
@@ -111,5 +111,5 @@ class Api:
         text = {'id': ids, 'lv': -1, 'tv': -1, 'csrf_token': ''}
         wyy = Encrypt(json.dumps(text))
         data = wyy.get_data()
-        response = requests.post(url=Commons.LYRIC_URL, data=data, headers=Commons.headers)
+        response = requests.post(url=Commons.NETEASE['LYRIC_URL'], data=data, headers=Commons.headers)
         return response.json()['lrc']['lyric']
