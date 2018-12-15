@@ -27,7 +27,7 @@ if __name__ == '__main__':
         # 每个歌手的专辑数量不得超过MAX_SIZE（这里我们选择30）
         # 同时判断当前歌手的专辑数量是否超过30
         album_count = album_count if (album_count < Commons.ALBUM_MAX_SIZE) else Commons.ALBUM_MAX_SIZE
-        for i in range(2):
+        for i in range(album_count):
             item = albums['result']['albums'][i]
             # 避免同名专辑存在（尚没有解决同歌手的同名专辑问题）
             if mongo.find_if_exist(artist=artist, album=item['name']) != 0:
@@ -44,6 +44,8 @@ if __name__ == '__main__':
             for song in musics['album']['songs']:
                 song_id = song['id']
                 mp3Url = api.get_music_url(ids=song_id)
+                if mp3Url is None:
+                    continue
                 path = store.download(url=mp3Url, path=os.path.join(str(_id), str(item['id'])))
                 lyric = api.get_song_lyric(ids=song_id)
                 mongo.save_music_info(song_info=song, album_name=item['name'], artist=artist, mp3Url=path, lyric=lyric)

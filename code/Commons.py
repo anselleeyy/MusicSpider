@@ -9,7 +9,7 @@ headers = {
 }
 
 # 文件保存的根目录
-DOWNLOAD_DIR = '../download/'
+DOWNLOAD_DIR = 'download/'
 
 NETEASE = {
     # 网易云搜索 API 接口
