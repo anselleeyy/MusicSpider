@@ -1,10 +1,11 @@
 from pymongo import MongoClient
+from code import Commons
 
 
 class Mongo:
     def __init__(self):
-        self.host = '10.11.124.102'
-        self.port = 27017
+        self.host = Commons.MONGO['host']
+        self.port = Commons.MONGO['port']
         self.client = MongoClient(host=self.host, port=self.port)
         self.db = self.client.music
         self.collections = self.db.album
@@ -51,4 +52,9 @@ class Mongo:
             "lyric": lyric
         }
         self.collections.update({"artist.name": artist, "albums.name": album_name}, {"$push": {"albums.$.songs": data}})
+        return
+
+    # 插入专辑数量字段
+    def update_album_count(self, artist, album_count):
+        self.collections.update({"artist.name": artist}, {"$set": {"albumCount": album_count}})
         return
