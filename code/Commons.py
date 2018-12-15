@@ -8,14 +8,33 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/70.0.3538.110 Safari/537.36'
 }
 
-DIR_ROOT = '/Users/tangshuning/PycharmProjects/MusicSpider/music/'
+# 文件保存的根目录
+DOWNLOAD_DIR = '../download/'
 
-SEARCH_URL = 'https://music.163.com/weapi/cloudsearch/get/web?csrf_token'
+NETEASE = {
+    # 网易云搜索 API 接口
+    'SEARCH_URL': 'https://music.163.com/weapi/cloudsearch/get/web?csrf_token',
 
-ALBUM_URL = 'http://music.163.com/api/album/{}'
+    # 网易云专辑信息 API 接口
+    'ALBUM_URL': 'http://music.163.com/api/album/{}',
 
-SONG_URL = 'http://music.163.com/weapi/song/enhance/player/url?csrf_token='
+    # 网易云播放地址 API 接口
+    'SONG_URL': 'http://music.163.com/weapi/song/enhance/player/url?csrf_token=',
 
-LYRIC_URL = 'https://music.163.com/weapi/song/lyric?csrf_token='
+    # 网易云歌词 API 接口
+    'LYRIC_URL': 'https://music.163.com/weapi/song/lyric?csrf_token='
+}
 
+# 下载的专辑上限
 ALBUM_MAX_SIZE = 30
+
+# 歌手
+artists = [
+    '李荣浩'
+]
+
+# MongoDB 配置
+MONGO = {
+    'host': '10.11.124.102',
+    'port': 27017
+}
