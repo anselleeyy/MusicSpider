@@ -14,20 +14,20 @@ class Mongo:
         # 处理歌手信息
         data = {
             "name": artist_info['name'],
-            "id": artist_info['id'],
+            "_id": artist_info['id'],
             "picUrl": artist_info['picUrl']
         }
         # 新增该歌手的信息
-        result_id = self.collections.insert_one({"artist": data})
+        result_id = self.collections.insert({"artist": data})
         return result_id
 
     # 保存单张专辑信息
-    def save_album_info(self, album_info, artist):
+    def save_album_info(self, album_info, artist, pic_url):
         data = {
             "name": album_info['name'],
-            "id": album_info['id'],
+            "_id": album_info['id'],
             "size": album_info['size'],
-            "picUrl": album_info['picUrl'],
+            "picUrl": pic_url,
             "publishTime": album_info['publishTime'],
             "commentThreadId": album_info['commentThreadId'],
             "description": album_info['description'],
@@ -46,7 +46,7 @@ class Mongo:
     def save_music_info(self, song_info, album_name, artist, mp3Url, lyric):
         data = {
             "name": song_info['name'],
-            "id": song_info['id'],
+            "_id": song_info['id'],
             "mp3Url": mp3Url,
             "lyric": lyric
         }
