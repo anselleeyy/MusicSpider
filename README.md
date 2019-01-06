@@ -1,6 +1,6 @@
 # MusicSpider
 
-**网易云音乐接口的分析以及音乐获取（Music Spider to WangYiYun Music Based on Python）**
+**网易云音乐接口的分析以及音乐获取（Music Spider to NetEase Music Based on Python）**
 
 <p align="center">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="" />
