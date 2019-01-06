@@ -27,6 +27,44 @@
 - [X] Json 数据的持久化存储（MongoDB）
 - [X] 音乐、专辑封面的下载与存储（不包括下架、付费等）
 
+### MongoDB 数据存储说明
+
+- 数据存储为 json 格式，内容如下
+
+```json
+{
+  "_id": "ObjectId()",
+  "artist": {
+    "name": "",
+    "_id": 4292,
+    "picUrl": ""
+  },
+  "albums": [
+    {
+      "name": "",
+      "_id": 35457526,
+      "size": 1,
+      "picUrl": "",
+      "publishTime": 1494007977282,
+      "commentThreadId": "",
+      "description": "",
+      "tags": "",
+      "company": "",
+      "songs": [
+        {
+          "name": "",
+          "_id": "",
+          "mp3Url": "",
+          "lyric": ""
+        },
+        {}
+      ]
+    }
+  ],
+  "albumCount": 20
+}
+```
+
 ### 项目运行说明
 
 **clone项目**
@@ -43,11 +81,22 @@
     - [DOWNLOAD_DIR]，歌曲以及专辑封面的下载地址，按需更改
     - [artists], 歌手列表，按需更改
     - [MONGO], MongoDB 配置信息，请按照自己本地环境修改
+- 根据 [DOWNLOAD_DIR] 创建相应目录
 
 **运行**
 
 > 请运行根目录下的 Main.py  
 > python Main.py
+
+**运行结果如下（Windows10 和 Centos7 下运行均无问题）**
+
+- 控制台
+
+![images/screenshot.png](images/screenshot.png)
+
+- MongoDB 数据库
+
+![images/screenshot2.png](images/screenshot2.png)
 
 ### 请作者喝杯咖啡
 
