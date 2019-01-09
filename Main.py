@@ -44,5 +44,5 @@ if __name__ == '__main__':
                     continue
                 path = store.download(url=mp3Url, path=os.path.join(str(_id), str(item['id'])))
                 lyric = api.get_song_lyric(ids=song_id)
-                mongo.save_song_info(song_info=song, album_id=item['id'], mp3Url=mp3Url, lyric=lyric)
+                mongo.save_song_info(song_info=song, album_id=item['id'], mp3Url=path, lyric=lyric)
         print('---------- {} albums saved ----------'.format(album_count))
