@@ -16,6 +16,13 @@
 
 ### 项目说明
 
+---
+**2019.1.14 更新**
+
+> 由于项目数据结构以及后期需要事务等支持，将会迁移到 MySQL 中，故该 MongoDB 版本将不再维护
+
+---
+
 > 项目主要实现对网易云音乐接口的数据进行获取、分析以及持久化存储  
 > 项目主要为本人本科毕业设计—— Infinity Music App，作数据保障  
 > 项目请勿商用，如有需要，请联系：573459407@qq.com（同时由于是本人毕业设计，请不要 copy）
@@ -32,36 +39,38 @@
 - 数据存储为 json 格式，内容如下
 
 ```json
+/*Artist 集合*/
 {
-  "_id": "ObjectId()",
-  "artist": {
-    "name": "",
-    "_id": 4292,
-    "picUrl": ""
-  },
+  "_id": 3417,
+  "name": "Eason",
+  "picUrl": "https://...."
+}
+/*Album 集合*/
+{
+  "_id": "ObjectId",
+  "artist_id": 3417,
   "albums": [
     {
       "name": "",
-      "_id": 35457526,
-      "size": 1,
-      "picUrl": "",
-      "publishTime": 1494007977282,
-      "commentThreadId": "",
-      "description": "",
-      "tags": "",
-      "company": "",
-      "songs": [
-        {
-          "name": "",
-          "_id": "",
-          "mp3Url": "",
-          "lyric": ""
-        },
-        {}
-      ]
-    }
-  ],
-  "albumCount": 20
+      "_id": "",
+      "size": ""
+    },
+    {}
+  ]
+}
+/*Song 集合*/
+{
+  "_id": "ObjectId",
+  "album_id": "",
+  "songs": [
+    {
+      "name": "",
+      "_id": "",
+      "mp3Url": "",
+      "lyric": ""
+    },
+    {}
+  ]
 }
 ```
 
@@ -69,7 +78,7 @@
 
 **clone项目**
 
-> git clone https://github.com/anselleeyy/MusicSpider
+> git clone -b version-1.0 https://github.com/anselleeyy/MusicSpider
 
 **安装mongo**
 
