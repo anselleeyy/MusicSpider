@@ -33,12 +33,6 @@ artists = [
     '李荣浩'
 ]
 
-# MongoDB 配置
-MONGO = {
-    'host': '10.11.124.102',
-    'port': 27017
-}
-
 # MySql 配置
 
 MYSQL = {
@@ -46,5 +40,5 @@ MYSQL = {
     'port': 3306,
     'username': 'ansel',
     'password': 'Ansel0428!',
-    'schema': 'music'
+    'schema': 'infiniti'
 }

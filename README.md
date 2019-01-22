@@ -18,52 +18,36 @@
 
 > 项目主要实现对网易云音乐接口的数据进行获取、分析以及持久化存储  
 > 项目主要为本人本科毕业设计—— Infinity Music App，作数据保障  
+> 项目数据库已经迁移到 MySQL，MongoDB 版本请见：branch version-1.0
 > 项目请勿商用，如有需要，请联系：573459407@qq.com（同时由于是本人毕业设计，请不要 copy）
 
 ### 项目主要功能说明
 
 - [X] 基于 AES 和 RSA 加密参数并获取网易云音乐 Json 数据
 - [X] 实现获取网易云歌手相关专辑信息、专辑内音乐信息（包括专辑封面、音乐歌词等）
-- [X] Json 数据的持久化存储（MongoDB）
-- [X] 音乐、专辑封面的下载与存储（不包括下架、付费等）
+- [X] 数据的持久化存储（MySQL）
+- [X] 歌手封面、专辑封面、音乐的下载与存储（不包括下架、付费等）
 
-### MongoDB 数据存储说明
+### ~~MongoDB 数据存储说明~~
 
-- 数据存储为 json 格式，内容如下
+- ~~数据存储为 json 格式~~ (已迁移到 MySQL 数据库，MongoDB 版本请见：branch version-1.0)
 
-```json
-{
-  "_id": "ObjectId()",
-  "artist": {
-    "name": "",
-    "_id": 4292,
-    "picUrl": ""
-  },
-  "albums": [
-    {
-      "name": "",
-      "_id": 35457526,
-      "size": 1,
-      "picUrl": "",
-      "publishTime": 1494007977282,
-      "commentThreadId": "",
-      "description": "",
-      "tags": "",
-      "company": "",
-      "songs": [
-        {
-          "name": "",
-          "_id": "",
-          "mp3Url": "",
-          "lyric": ""
-        },
-        {}
-      ]
-    }
-  ],
-  "albumCount": 20
-}
-```
+### MySQL 数据存储说明
+
+- t_artist 表
+
+|artistId|artistName|picUrl
+|---|---|---
+
+- t_album 表
+
+album_id|album_name|artist_id|comment_thread_id|company|description|pic_url|publishTime|size|tags
+|---|---|---|---|---|---|---|---|---|---
+
+- t_song 表
+
+|song_id|album_id|lyric|mp3Url|song_name
+|---|---|---|---|---
 
 ### 项目运行说明
 
@@ -80,7 +64,7 @@
 - 修改 code 目录下的 Commons.py 中的
     - [DOWNLOAD_DIR]，歌曲以及专辑封面的下载地址，按需更改
     - [artists], 歌手列表，按需更改
-    - [MONGO], MongoDB 配置信息，请按照自己本地环境修改
+    - [MYSQL], MYSQL 配置信息，请按照自己本地环境修改
 - 根据 [DOWNLOAD_DIR] 创建相应目录
 
 **运行**

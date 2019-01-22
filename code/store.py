@@ -48,7 +48,6 @@ class Store:
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
         file_path = os.path.join(dir_path, file_name)
-        print(file_path)
         request.urlretrieve(url=url, filename=file_path)
         return file_path
 
