@@ -36,9 +36,9 @@ artists = [
 # MySql 配置
 
 MYSQL = {
-    'host': '10.11.124.102',
+    'host': '',
     'port': 3306,
-    'username': 'ansel',
-    'password': 'Ansel0428!',
+    'username': '',
+    'password': '',
     'schema': 'infiniti'
 }
